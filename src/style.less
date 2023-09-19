@@ -1,0 +1,149 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  > div {
+    border: 1px solid black;
+    padding: 0 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.85;
+    }
+    &.selected {
+      background: #000;
+      color: #fff;
+    }
+  }
+  margin-bottom: 20px;
+}
+.demo-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.img {
+  background: url('https://images.unsplash.com/photo-1528287942171-fbe365d1d9ac?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&w=1200&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ')
+    center no-repeat;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+}
+
+.demo1 {
+  mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sun.svg);
+  mask-size: 200px;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sun.svg);
+  -webkit-mask-size: 200px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+// mask-repeat  重复方向
+.demo2 {
+  mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sun.svg);
+  mask-size: 80px;
+  mask-repeat: repeat-x;
+  mask-position: center;
+  -webkit-mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sun.svg);
+  -webkit-mask-size: 80px;
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-position: center;
+}
+
+// 渐变mask
+.demo3 {
+  mask-image: -webkit-gradient(
+    linear,
+    right top,
+    right bottom,
+    from(rgba(0, 0, 0, 0)),
+    to(rgba(0, 0, 0, 0.9))
+  );
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    right top,
+    right bottom,
+    from(rgba(0, 0, 0, 0)),
+    to(rgba(0, 0, 0, 0.9))
+  );
+}
+
+// 渐变mask 圆形渐变
+.demo4 {
+  mask-image: radial-gradient(
+    circle at 50% 50%,
+    blue 40%,
+    rgba(0, 0, 0, 0.1) 60%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    blue 40%,
+    rgba(0, 0, 0, 0.1) 60%
+  );
+}
+
+// 通过masker引入对应svg图层，background 赋值来修改图标颜色
+.demo5 {
+  mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sun.svg);
+  -webkit-mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sun.svg);
+  -webkit-mask-mode: luminance;
+  -webkit-mask-size: 200px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  background: blue;
+}
+
+// ○和十字矩形 mask-composite
+.demo6 {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24.394 24.394'%3E%3Ccircle cx='12.197' cy='12.197' r='12.197'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 297 297'%3E%3Cpath d='M294.061 101.395a9.869 9.869 0 00-6.976-2.887l-88.617.012.013-88.655a9.868 9.868 0 00-2.888-6.977A9.868 9.868 0 00188.616 0l-80.188.012c-5.445.002-9.859 4.415-9.86 9.86l-.016 88.662-88.626.014c-5.446 0-9.86 4.415-9.861 9.86L.051 188.63a9.863 9.863 0 009.865 9.865l88.621-.012-.014 88.653a9.86 9.86 0 009.866 9.865l80.187-.016c5.445 0 9.859-4.415 9.86-9.86l.014-88.658 88.629-.016c5.445 0 9.859-4.415 9.86-9.86l.012-80.22a9.876 9.876 0 00-2.89-6.976z'/%3E%3C/svg%3E");
+  -webkit-mask-size: 150px, 200px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  // clear|copy|destination-over|destination-in|destination-out|destination-atop|source-in|source-out|source-atop|source-over|xor|plus-lighter
+  -webkit-mask-composite: xor;
+}
+
+.demo7 {
+  -webkit-mask: radial-gradient(circle 30px at top left, #0000 98%, #000) top
+      left,
+    radial-gradient(circle 30px at top right, #0000 98%, #000) top right,
+    radial-gradient(circle 30px at bottom left, #0000 98%, #000) bottom left,
+    radial-gradient(circle 30px at bottom right, #0000 98%, #000) bottom right;
+  -webkit-mask-size: 51% 51%;
+  -webkit-mask-repeat: no-repeat;
+  background-image: url(https://picsum.photos/id/1069/200/200);
+}
+
+// mask 动画
+.demo8 {
+  -webkit-mask: radial-gradient(30px, #0000 98%, #000) 0 0;
+  -webkit-mask-repeat: no-repeat;
+  background-image: url(https://picsum.photos/id/1069/200/200);
+  transition: 0.5s linear;
+  cursor: pointer;
+  &:hover {
+    -webkit-mask: radial-gradient(30px, #0000 98%, #000) -100px -100px;
+  }
+}
+
+// var变量在less中调用
+.t1 {
+  @p: 10px;
+  color: #0000;
+  background: ~'linear-gradient(90deg, #1095c1 50%, #000 0) var(--_p, 100%) / 200% no-repeat';
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: 0.4s;
+}
+.t1:hover {
+  --_p: 0%;
+}

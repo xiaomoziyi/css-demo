@@ -1,0 +1,555 @@
+h3 {
+  font-family: system-ui, sans-serif;
+  font-size: 3rem;
+  margin: 0;
+  cursor: pointer;
+  padding: 0 0.1em;
+}
+.hover {
+  color: #0000;
+  background: linear-gradient(90deg, #1095c1 50%, #000 0) var(--_p, 100%) / 200%
+    no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: 0.4s;
+}
+.hover:hover {
+  --_p: 0%;
+}
+
+.hover-1 {
+  --c: #1095c1; /* the color */
+  --s: 0.15em;
+
+  line-height: 1.1em;
+  padding-bottom: calc(2.1 * var(--s));
+  background: conic-gradient(from 135deg at top, var(--c) 90deg, #0000 0) left 0
+      bottom var(--s) / calc(2 * var(--s)) var(--s) repeat-x,
+    conic-gradient(from -45deg at bottom, var(--c) 90deg, #0000 0) left var(--s)
+      bottom 0 / calc(2 * var(--s)) var(--s) repeat-x;
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0) 0 / var(--_p, 0%) padding-box no-repeat;
+  transition: 0.5s;
+}
+.hover-1:hover {
+  --_p: 100%;
+  color: var(--c);
+}
+
+.hover-2 {
+  --c: #1095c1; /* the color */
+  --b: 0.1em; /* border length*/
+  --d: 20px; /* the cube depth */
+
+  --_s: calc(var(--d) + var(--b));
+
+  color: var(--c);
+  border: solid #0000;
+  border-width: var(--b) var(--b) var(--_s) var(--_s);
+  background: conic-gradient(
+        at left var(--d) bottom var(--d),
+        #0000 90deg,
+        rgb(255 255 255 /0.3) 0 225deg,
+        rgb(255 255 255 /0.6) 0
+      )
+      border-box,
+    conic-gradient(at left var(--_s) bottom var(--_s), #0000 90deg, var(--c) 0)
+      0 100% / calc(100% - var(--b)) calc(100% - var(--b)) border-box;
+  transform: translate(calc(var(--d) / -1), var(--d));
+  clip-path: polygon(
+    var(--d) 0%,
+    var(--d) 0%,
+    100% 0%,
+    100% calc(100% - var(--d)),
+    100% calc(100% - var(--d)),
+    var(--d) calc(100% - var(--d))
+  );
+  transition: 0.5s;
+}
+.hover-2:hover {
+  transform: translate(0, 0);
+  clip-path: polygon(
+    0% var(--d),
+    var(--d) 0%,
+    100% 0%,
+    100% calc(100% - var(--d)),
+    calc(100% - var(--d)) 100%,
+    0% 100%
+  );
+}
+.hover-3 {
+  --b: 0.1em; /* the thickness of the line */
+  --c: #1095c1; /* the color */
+
+  color: #0000;
+  padding-block: var(--b);
+  background: linear-gradient(var(--c) 50%, #000 0) 0%
+      calc(100% - var(--_p, 0%)) / 100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.3s var(--_s, 0s) linear,
+    background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+.hover-3:hover {
+  --_p: 100%;
+  --_s: 0.3s;
+}
+.hover-4 {
+  border: 8px solid;
+  border-image: repeating-linear-gradient(
+      135deg,
+      #f8ca00 0 10px,
+      #e97f02 0 20px,
+      #bd1550 0 30px
+    )
+    8;
+  -webkit-mask: conic-gradient(
+        from 180deg at top 8px right 8px,
+        #0000 90deg,
+        #000 0
+      )
+      var(--_i, 200%) 0 /200% var(--_i, 8px) border-box no-repeat,
+    conic-gradient(at bottom 8px left 8px, #0000 90deg, #000 0) 0
+      var(--_i, 200%) / var(--_i, 8px) 200% border-box no-repeat,
+    linear-gradient(#000 0 0) padding-box no-repeat;
+  transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
+}
+.hover-4:hover {
+  --_i: 100%;
+  color: #cc333f;
+  transition: 0.3s, -webkit-mask-size 0.3s 0.3s;
+}
+
+.t2,
+.t3,
+.t4 {
+  color: #0000;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 40px;
+  font-family: sans-serif;
+  margin: 25px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.inverted-1 {
+  background: linear-gradient(black 50%, #fff 0) 0 var(--_d, 0) / 100% 200%
+      no-repeat,
+    linear-gradient(#0000 50%, #000 0) 0 var(--_d, 0) / 100% 200% no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.8s;
+}
+.inverted-1:hover {
+  --_d: 50%;
+}
+
+.inverted-2 {
+  background: linear-gradient(90deg, #000 50%, #fff 0),
+    linear-gradient(-90deg, #000 50%, #fff 0),
+    linear-gradient(90deg, #0000 50%, #000 0),
+    linear-gradient(-90deg, #0000 50%, #000 0);
+  background-repeat: no-repeat;
+  background-size: 200% 51%;
+  background-position: top left, bottom right;
+  -webkit-background-clip: text, text, padding-box, padding-box;
+  background-clip: text, text, padding-box, padding-box;
+  transition: 0.8s;
+}
+
+.inverted-2:hover {
+  background-position: top right, bottom left;
+}
+.inverted-3 {
+  background: linear-gradient(-135deg, #000 50%, #fff 0) var(--_d, 100%) / 250%
+      no-repeat,
+    linear-gradient(-135deg, #0000 50%, #000 0) var(--_d, 100%) / 250% no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.8s;
+}
+
+.inverted-3:hover {
+  --_d: 50%;
+}
+
+.inverted-4 {
+  background: linear-gradient(to bottom right, #000 50%, #fff 50.1%) left/300%
+      300% no-repeat,
+    linear-gradient(to bottom right, #0000 50%, #000 50.1%) left/300% 300%
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.8s;
+}
+.inverted-4:hover {
+  background-position: center;
+}
+
+.inverted-5 {
+  background: linear-gradient(#000, 40%, #fff 0 60%, #000 0) left/var(--_p, 0%)
+      no-repeat,
+    linear-gradient(#0000 40%, #000 0 60%, #0000 0) left/var(--_p, 0%) no-repeat,
+    #000;
+  -webkit-background-clip: text, padding-box, text;
+  background-clip: text, padding-box, text;
+  transition: 0.8s;
+}
+.inverted-5:hover {
+  --_p: 100%;
+}
+
+.inverted-6 {
+  --_g1: conic-gradient(from 90deg at 50% 75%, #000 90deg, #fff 0) no-repeat;
+  --_g2: conic-gradient(from 90deg at 50% 75%, #0000 90deg, #000 0) no-repeat;
+  background: var(--_g1) 0 calc(134% - var(--_p, 0%)),
+    var(--_g2) 0 calc(134% - var(--_p, 0%)),
+    var(--_g1) 100% calc(200% - var(--_p, 0%)),
+    var(--_g2) 100% calc(200% - var(--_p, 0%)), #000;
+  background-size: 50.2% 400%;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.8s;
+}
+.inverted-6:hover {
+  --_p: 134%;
+}
+
+.inverted-7 {
+  background: linear-gradient(-45deg, #000 40%, #fff 0 60%, #000 0) right/300%
+      100% no-repeat,
+    linear-gradient(-45deg, #0000 40%, #000 0 60%, #0000 0) right/300% 100%
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.8s;
+}
+.inverted-7:hover {
+  background-position: left;
+}
+
+.inverted-8 {
+  background: linear-gradient(-45deg, #000 40%, #fff 0 60%, #000 0) right/300%
+      100% no-repeat,
+    linear-gradient(-45deg, #0000 40%, #000 0 60%, #0000 0) right/300% 100%
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+}
+.inverted-8:hover {
+  background-position: left;
+  transition: 0.8s;
+}
+
+.t3.inverted-1 {
+  background: radial-gradient(circle closest-side, #fff 97%, #000),
+    radial-gradient(circle closest-side, #000 97%, #0000);
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-size: 230% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  transition: 1s linear;
+}
+.t3.inverted-1:hover {
+  background-position: left;
+}
+
+.t3,
+.inverted-2 {
+  background: conic-gradient(from -60deg, #fff 120deg, #0000 0),
+    conic-gradient(from 120deg, #fff 120deg, #000 0),
+    conic-gradient(from -60deg, #000 120deg, #0000 0),
+    conic-gradient(from 120deg, #000 120deg, #0000 0);
+  -webkit-background-clip: text, text, padding-box, padding-box;
+  background-clip: text, text, padding-box, padding-box;
+  background-size: 100% 200%;
+  background-position: bottom, top;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+.t3.inverted-2:hover {
+  background-position: top, bottom;
+}
+
+.t3.inverted-3 {
+  background: radial-gradient(circle 30px at 50% 75%, #fff 95%, #000),
+    radial-gradient(circle 30px at 50% 75%, #000 95%, #0000), #000;
+  -webkit-background-clip: text, padding-box, text;
+  background-clip: text, padding-box, text;
+  background-size: 100% 200%;
+  background-position: top;
+  background-repeat: repeat-x;
+  transition: 0.3s, background-position 0.3s 0.3s;
+}
+.t3.inverted-3:hover {
+  background-size: 15% 200%;
+  background-position: bottom;
+  transition: 0.3s, background-size 0.3s 0.3s;
+}
+
+.t3.inverted-4 {
+  background: conic-gradient(
+        from -45deg at 50% calc(5 * 100% / 6),
+        #fff 90deg,
+        #000 0
+      )
+      calc(0 * 100% / 3) var(--_d, 100%),
+    conic-gradient(from -45deg at 50% calc(5 * 100% / 6), #000 90deg, #ffff 0)
+      calc(0 * 100% / 3) var(--_d, 100%),
+    conic-gradient(from -45deg at 50% calc(4 * 100% / 6), #fff 90deg, #000 0)
+      calc(1 * 100% / 3) var(--_d, 100%),
+    conic-gradient(from -45deg at 50% calc(4 * 100% / 6), #000 90deg, #ffff 0)
+      calc(1 * 100% / 3) var(--_d, 100%),
+    conic-gradient(from -45deg at 50% calc(3 * 100% / 6), #fff 90deg, #000 0)
+      calc(2 * 100% / 3) var(--_d, 100%),
+    conic-gradient(from -45deg at 50% calc(3 * 100% / 6), #000 90deg, #ffff 0)
+      calc(2 * 100% / 3) var(--_d, 100%),
+    conic-gradient(from -45deg at 50% calc(2 * 100% / 6), #fff 90deg, #000 0)
+      calc(3 * 100% / 3) var(--_d, 100%),
+    conic-gradient(from -45deg at 50% calc(2 * 100% / 6), #000 90deg, #ffff 0)
+      calc(3 * 100% / 3) var(--_d, 100%);
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-size: calc(100% / 4) 600%;
+  background-repeat: no-repeat;
+  transition: 1s linear;
+}
+.t3.inverted-4:hover {
+  --_d: 0%;
+}
+
+.t3.inverted-5 {
+  background: conic-gradient(from -135deg, #fff 0 90deg, #000 0),
+    conic-gradient(from -135deg, #000 0 90deg, #ffff 0);
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-size: 200% 100%;
+  background-position: right;
+  transition: 0.5s;
+}
+.t3.inverted-5:hover {
+  background-position: center;
+}
+
+.t3.inverted-6 {
+  background: conic-gradient(#fff 0 90deg, #fff0 0) bottom left,
+    conic-gradient(#000 0 90deg, #fff0 0) bottom left,
+    conic-gradient(from 90deg, #fff 0 90deg, #fff0 0) top left,
+    conic-gradient(from 90deg, #000 0 90deg, #fff0 0) top left,
+    conic-gradient(from 180deg, #fff 0 90deg, #fff0 0) top right,
+    conic-gradient(from 180deg, #000 0 90deg, #fff0 0) top right,
+    conic-gradient(from -90deg, #fff 0 90deg, #fff0 0) bottom right,
+    conic-gradient(from -90deg, #000 0 90deg, #fff0 0) bottom right, #000;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-size: 202% 202%;
+  transition: 0.5s;
+}
+.t3.inverted-6:hover {
+  background-position: center;
+}
+
+.t3.inverted-7 {
+  padding: 8px;
+  color: #0000;
+  background: radial-gradient(50% 100% at bottom, #fff 97%, #000),
+    radial-gradient(50% 100% at bottom, #000 97%, #0000), #000;
+  -webkit-background-clip: text, padding-box, text;
+  background-clip: text, padding-box, text;
+  background-size: 0% 0%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+.t3.inverted-7:hover {
+  background-size: 110% 60%;
+}
+
+.t3.inverted-8 {
+  background: repeating-linear-gradient(-45deg, #fff 0 15px, #000 0 30px),
+    repeating-linear-gradient(-45deg, #000 0 15px, #0000 0 30px), #000;
+  -webkit-background-clip: text, padding-box, text;
+  background-clip: text, padding-box, text;
+  background-size: 500px 500px;
+  background-position: left 0 top -500px;
+  background-repeat: no-repeat;
+  transition: 0.5s linear;
+}
+.t3.inverted-8:hover {
+  background-position: left -100px top -400px;
+}
+
+.t4.inverted-1 {
+  padding: 10px;
+  background: conic-gradient(from 135deg at top, #fff 90deg, #000 0),
+    conic-gradient(from -45deg at bottom, #fff 90deg, #000 0),
+    conic-gradient(from 135deg at top, #000 90deg, #0000 0),
+    conic-gradient(from -45deg at bottom, #000 90deg, #0000 0);
+  -webkit-background-clip: text, text, padding-box, padding-box;
+  background-clip: text, text, padding-box, padding-box;
+  background-size: 230% 50%;
+  background-position: top right, bottom right;
+  background-repeat: no-repeat;
+  transition: 1s linear;
+}
+.t4.inverted-1:hover {
+  background-position: top left, bottom left;
+}
+
+.t4.inverted-2 {
+  padding: 10px;
+  background: conic-gradient(from 135deg at top, #fff 90deg, #000 0),
+    conic-gradient(from -45deg at bottom, #fff 90deg, #000 0),
+    conic-gradient(from 135deg at top, #000 90deg, #0000 0),
+    conic-gradient(from -45deg at bottom, #000 90deg, #0000 0), #000;
+  -webkit-background-clip: text, text, padding-box, padding-box, text;
+  background-clip: text, text, padding-box, padding-box, text;
+  background-size: 100% 50%;
+  background-position: 50% -100%, 50% 200%;
+  background-repeat: repeat-x;
+  transition: 0.4s linear, background-position 0.3s 0.5s;
+}
+.t4.inverted-2:hover {
+  background-position: 50% 0, 50% 100%;
+  background-size: 10% 50%;
+  transition: 0.3s, background-size 0.4s 0.3s linear;
+}
+
+.t4.inverted-3 {
+  padding: 0 10px;
+  line-height: 1em;
+  background: linear-gradient(#fff 0 0), linear-gradient(#000 0 0), #000;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-size: 100% 50%;
+  background-position: 100vmax 100%;
+  box-shadow: 100vmax 0.5em 0 0 #0000;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+.t4.inverted-3:hover {
+  background-position: 0 100%;
+  box-shadow: 0 0.5em 0 0 #000;
+}
+.t4.inverted-4 {
+  padding: 0 10px;
+  line-height: 1.4em;
+  background: linear-gradient(#fff 0 0), linear-gradient(#000 0 0), #000;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-size: 100% 50%;
+  background-position: -100vmax 100%;
+  box-shadow: -100vmax 0.7em 0 0 #0000;
+  clip-path: polygon(
+    -100vmax 0,
+    100% 0,
+    100% calc(100% + 0.7em),
+    -100vmax calc(100% + 0.7em)
+  );
+  background-repeat: no-repeat;
+  transition: 0.4s, box-shadow 0.3s 0.4s, background-position 0.3s 0.4s;
+}
+.t4.inverted-4:hover {
+  background-position: 0 100%;
+  background-size: 100% 100%;
+  box-shadow: 0 0.7em 0 0 #000;
+  clip-path: polygon(-100vmax 0, 100% 0, 100% 100%, -100vmax 100%);
+  transition: 0.4s, clip-path 0.3s 0.4s, background-size 0.3s 0.4s;
+}
+
+.t4.inverted-5 {
+  padding: 10px;
+  background: radial-gradient(100% 100% at top left, #fff 98%, #000),
+    radial-gradient(100% 100% at bottom right, #fff 98%, #000),
+    radial-gradient(100% 100% at top left, #000 98%, #0000),
+    radial-gradient(100% 100% at bottom right, #000 98%, #0000), #000;
+  -webkit-background-clip: text, text, padding-box, padding-box, text;
+  background-clip: text, text, padding-box, padding-box, text;
+  background-size: 0% 0%;
+  background-position: top left, bottom right;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+.t4.inverted-5:hover {
+  background-size: 50% 100%;
+}
+
+.t4.inverted-6 {
+  --cos45: 0.7071;
+  --g1: #000 calc(0.7em * var(--cos45)),
+    #fff 0 calc(0.7em * var(--cos45) + 25px), #000 0;
+  --g2: #0000 calc(0.7em * var(--cos45)),
+    #000 0 calc(0.7em * var(--cos45) + 25px), #0000 0;
+  padding: 0 10px;
+  line-height: 1.4em;
+  background: linear-gradient(135deg, var(--g1)) top 0 right var(--_p, -100%),
+    linear-gradient(135deg, var(--g2)) top 0 right var(--_p, -100%),
+    linear-gradient(45deg, var(--g1)) bottom 0 right var(--_p, -100%),
+    linear-gradient(45deg, var(--g2)) bottom 0 right var(--_p, -100%),
+    linear-gradient(-45deg, var(--g1)) bottom 0 left var(--_p, -100%),
+    linear-gradient(-45deg, var(--g2)) bottom 0 left var(--_p, -100%),
+    linear-gradient(-135deg, var(--g1)) top 0 left var(--_p, -100%),
+    linear-gradient(-135deg, var(--g2)) top 0 left var(--_p, -100%), #000;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+.t4.inverted-6:hover {
+  --_p: 0%;
+}
+
+.t4.inverted-7 {
+  padding: 0 10px;
+  line-height: 1.4em;
+  background: conic-gradient(from -115deg, #fff 50deg, #0000 0)
+      var(--_p, -1.2em) 0/2.4em 1.2em,
+    conic-gradient(from -115deg, #000 50deg, #0000 0) var(--_p, -1.2em) 0/2.4em
+      1.2em,
+    linear-gradient(90deg, #fff calc(100% - 1.2em), #0000 0) bottom 50% left 0 /
+      var(--_d, 0%) 15px,
+    linear-gradient(90deg, #000 calc(100% - 1.2em), #0000 0) bottom 50% left 0 /
+      var(--_d, 0%) 15px,
+    #000;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+.t4.inverted-7:hover {
+  --_d: 100%;
+  --_p: calc(100% + 1.2em);
+}
+
+.t4.inverted-8 {
+  --x: 140px;
+  padding: 0 10px;
+  line-height: 1.4em;
+  box-shadow: 0 0 0px 100px var(--c, #0000);
+  background: conic-gradient(from 60deg, #fff 0 60deg, #000 0),
+    conic-gradient(from 60deg, #000 0 60deg, #0000 0), #000;
+  -webkit-background-clip: text, padding-box, text;
+  background-clip: text, padding-box, text;
+  background-size: 300px 300px;
+  background-position: calc(50% + var(--x)) 50%;
+  background-repeat: no-repeat;
+  clip-path: polygon(
+    1.5px 1.5px,
+    calc(50% + 0.7em * 1.73 - 1.5px + var(--x)) 1.5px,
+    calc(50% + 160px + var(--x)) calc(50% - 80px),
+    calc(50% + 160px + var(--x)) calc(50% + 80px),
+    calc(50% + 0.7em * 1.73 - 1.5px + var(--x)) calc(100% - 1.5px),
+    1.5px calc(100% - 1.5px)
+  );
+  transition: 0.5s;
+}
+.t4.inverted-8:hover {
+  --p: 0%;
+  --c: #000;
+  --x: 0px;
+}
